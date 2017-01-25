@@ -6,9 +6,9 @@ export class StepperView extends Component<{}, {}> {
   static contextTypes = stepperContext
 
   render() {
-    const {pages, currentPage} = this.context
+    const {pageState, setPageState, pages, currentPage} = this.context
     const Component = pages[currentPage].component
 
-    return <Component />
+    return <Component state={pageState} setState={setPageState} />
   }
 }

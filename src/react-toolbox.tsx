@@ -12,7 +12,12 @@ export const AdvanceButton: StatelessComponent<ButtonProps & {
 }> = compose(
   withStepper,
   setDisplayName('AdvanceButton'),
-)(({canReverse: _, pages, canAdvance, currentPage, setPageIndex, disabled, onClick, onNext, onFinish, finishLabel, children, ...props}) =>
+)(({
+  canReverse: _, pageState: __, setPageState: ___,
+  pages, canAdvance, currentPage, setPageIndex,
+  disabled, onClick, onNext, onFinish, finishLabel,
+  children, ...props,
+}) =>
   <Button disabled={disabled || (!finishLabel && !canAdvance)} {...props} onClick={e => {
     if (currentPage + 1 >= pages.length) {
       if (onFinish) {
@@ -40,7 +45,12 @@ export const ReverseButton: StatelessComponent<ButtonProps & {
 }> = compose(
   withStepper,
   setDisplayName('ReverseButton'),
-)(({canAdvance: _, pages: __, canReverse, currentPage, setPageIndex, disabled, onClick, onPrevious, onCancel, cancelLabel, children, ...props}) =>
+)(({
+  canAdvance: _, pages: __, pageState: ___, setPageState: ____,
+  canReverse, currentPage, setPageIndex,
+  disabled, onClick, onPrevious, onCancel, cancelLabel,
+  children, ...props,
+}) =>
   <Button disabled={disabled || (!cancelLabel && !canReverse)} {...props} onClick={e => {
     if (currentPage <= 0) {
       if (onCancel) {
