@@ -4,16 +4,18 @@ import {PageConfig, stepperContext} from './entities'
 
 export type Props = {
   pages: Array<PageConfig>
+  initialState?: any,
 }
 
 export type State = {
   currentPage?: number
+  pageState?: any,
 }
 
 export class Stepper extends Component<Props, State> {
   static childContextTypes = stepperContext
 
-  state = {currentPage: 0}
+  state = {currentPage: 0} as State
 
   get canAdvance() {
     const {pages} = this.props
@@ -55,6 +57,17 @@ export class Stepper extends Component<Props, State> {
 
     this.setState({currentPage: index})
   }
+  setPageState = newState => {
+    if (typeof newState === 'function') {
+      this.setState(state => ({pageState: {...state.pageState, ...newState(state.pageState)}}))
+    }
+    this.setState({pageState: {...this.state.pageState, ...newState}})
+  }
+
+  constructor(props: Props) {
+    super(props)
+    this.state.pageState = props.initialState
+  }
 
   getChildContext() {
     return {
@@ -63,6 +76,9 @@ export class Stepper extends Component<Props, State> {
       canAdvance: this.canAdvance,
       canReverse: this.canReverse,
       setPageIndex: this.setPageIndex,
+
+      setPageState: this.setPageState,
+      pageState: this.state.pageState,
     }
   }
 
