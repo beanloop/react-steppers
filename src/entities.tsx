@@ -1,4 +1,4 @@
-import {PropTypes, ReactType} from 'react'
+import {PropTypes, ReactElement, ReactType} from 'react'
 
 export const stepperContext = {
   pages: PropTypes.array,
@@ -6,19 +6,29 @@ export const stepperContext = {
   canAdvance: PropTypes.bool,
   canReverse: PropTypes.bool,
   setPageIndex: PropTypes.func,
+}
 
-  setPageState: PropTypes.func,
-  pageState: PropTypes.any,
+export type Context = {
+  pages: Array<PageConfig>
+  currentPage: number
+  canAdvance: boolean
+  canReverse: boolean
+  setPageIndex: (index: number) => void
 }
 
 export type Awaitable<T> = Promise<T>|T
 
+export type Status = 'done'|'alert'
+
 export type PageConfig = {
   title?: string
-  component: ReactType
+  subTitle?: string
+  status?: Status
   onLeave?: () => Awaitable<void|boolean>
   onAdvance?: () => Awaitable<void|boolean>
   onReverse?: () => Awaitable<void|boolean>
   canAdvance?: () => boolean
   canReverse?: () => boolean
+  render?: () => ReactElement<any>
+  component?: ReactType
 }

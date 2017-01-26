@@ -25,6 +25,7 @@
   "dependencies": {
     "@types/react": "^15.0.0",
     "@types/react-dom": "^0.14.20",
-    "recompose": "^0.21.2"
+    "recompose": "^0.21.2",
+    "styled-material": "^0.1.7"
   }
 }

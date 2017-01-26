@@ -5,8 +5,12 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.AdvanceButton = exports.ReverseButton = undefined;
 
-var _reactToolbox = require('./dist/src/react-toolbox');
+var _buttons = require('./dist/src/react-toolbox/buttons');
+var _stepHeader = require('./dist/src/react-toolbox/step-header');
+var _verticalStepper = require('./dist/src/react-toolbox/vertical-stepper');
 
 
-exports.AdvanceButton = _reactToolbox.AdvanceButton;
-exports.ReverseButton = _reactToolbox.ReverseButton;
+exports.AdvanceButton = _buttons.AdvanceButton;
+exports.ReverseButton = _buttons.ReverseButton;
+exports.StepHeader = _stepHeader.StepHeader;
+exports.VerticalStepper = _verticalStepper.VerticalStepper;

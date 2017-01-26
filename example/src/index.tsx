@@ -1,7 +1,7 @@
 import * as React from 'react'
 import {render} from 'react-dom'
 import {DotTracker, Stepper, StepperView, TextTracker} from 'react-step'
-import {AdvanceButton, ReverseButton} from 'react-step/react-toolbox'
+import {AdvanceButton, ReverseButton, VerticalStepper} from 'react-step/react-toolbox'
 import 'react-toolbox/lib/commons.scss'
 import {FontIcon} from 'react-toolbox/lib/font_icon'
 import {Column, Row} from 'styled-material/dist/src/layout'
@@ -11,7 +11,6 @@ const Bar = props => <div style={{
 }} {...props} />
 
 const Page = props => <div style={{
-  padding: 16,
 }} {...props} />
 
 const PageOne = () =>
@@ -31,15 +30,26 @@ const PageThree = () =>
 
 export const App = () =>
   <Stepper pages={[
-    {component: PageOne},
-    {component: PageTwo},
-    {component: PageThree},
+    {
+      title: 'Step one',
+      component: PageOne,
+    },
+    {
+      title: 'Step two',
+      component: PageTwo,
+    },
+    {
+      title: 'Step three',
+      component: PageThree,
+    },
   ]}>
     <Column horizontal='stretch'>
       <Bar>
         <TextTracker />
       </Bar>
-      <StepperView />
+      <Bar>
+        <StepperView />
+      </Bar>
       <Bar>
         <Row>
           <ReverseButton>
@@ -53,6 +63,7 @@ export const App = () =>
           </AdvanceButton>
         </Row>
       </Bar>
+      <VerticalStepper />
     </Column>
   </Stepper>
 

@@ -3,7 +3,7 @@ import {ReactChild, StatelessComponent} from 'react'
 import {Button, ButtonProps} from 'react-toolbox/lib/button'
 import compose from 'recompose/compose'
 import setDisplayName from 'recompose/setDisplayName'
-import {withStepper} from './with-stepper'
+import {withStepper} from '../with-stepper'
 
 export const AdvanceButton: StatelessComponent<ButtonProps & {
   onFinish?: () => void
@@ -17,26 +17,30 @@ export const AdvanceButton: StatelessComponent<ButtonProps & {
   pages, canAdvance, currentPage, setPageIndex,
   disabled, onClick, onNext, onFinish, finishLabel,
   children, ...props,
-}) =>
-  <Button disabled={disabled || (!finishLabel && !canAdvance)} {...props} onClick={e => {
-    if (currentPage + 1 >= pages.length) {
-      if (onFinish) {
-        onFinish()
+}) => {
+  const isLast = finishLabel && currentPage + 1 >= pages.length
+
+  return (
+    <Button disabled={disabled || (!isLast && !canAdvance)} {...props} onClick={e => {
+      if (currentPage + 1 >= pages.length) {
+        if (onFinish) {
+          onFinish()
+        }
+      } else {
+        if (onNext) {
+          onNext()
+        }
+        setPageIndex(currentPage + 1)
       }
-    } else {
-      if (onNext) {
-        onNext()
+      if (onClick) return onClick(e)
+    }}>
+      {finishLabel && currentPage + 1 >= pages.length
+        ? finishLabel
+        : children
       }
-      setPageIndex(currentPage + 1)
-    }
-    if (onClick) return onClick(e)
-  }}>
-    {finishLabel && currentPage + 1 >= pages.length
-      ? finishLabel
-      : children
-    }
-  </Button>
-)
+    </Button>
+  )
+})
 
 export const ReverseButton: StatelessComponent<ButtonProps & {
   onCancel?: () => void

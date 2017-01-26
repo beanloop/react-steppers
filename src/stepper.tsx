@@ -47,10 +47,10 @@ export class Stepper extends Component<Props, State> {
 
     const page = pages[currentPage]
 
-    if (currentPage < index) {
-      if (!this.allowNavigate(page.onAdvance)) return false
+    if (index > currentPage) {
+      if (!this.canAdvance || !this.allowNavigate(page.onAdvance)) return false
     } else {
-      if (!this.allowNavigate(page.onReverse)) return false
+      if (!this.canReverse || !this.allowNavigate(page.onReverse)) return false
     }
     if (!this.allowNavigate(page.onLeave)) return false
 
@@ -76,9 +76,6 @@ export class Stepper extends Component<Props, State> {
       canAdvance: this.canAdvance,
       canReverse: this.canReverse,
       setPageIndex: this.setPageIndex,
-
-      setPageState: this.setPageState,
-      pageState: this.state.pageState,
     }
   }
 
