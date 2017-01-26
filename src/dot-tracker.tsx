@@ -12,7 +12,7 @@ const row = {
 }
 
 export const DotTracker: StatelessComponent<{
-  acttiveColor?: string
+  activeColor?: string
   inactiveColor?: string
   style?: CSSProperties
 }> = compose(
