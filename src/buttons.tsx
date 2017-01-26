@@ -25,17 +25,20 @@ export const AdvanceButton: StatelessComponent<DOMAttributes<HTMLButtonElement> 
 
   return (
     <Button disabled={disabled || (!isLast && !canAdvance)} {...props} onClick={e => {
+      let returnValue
       if (currentPage + 1 >= pages.length) {
         if (onFinish) {
-          onFinish()
+          returnValue = onFinish()
         }
       } else {
         if (onNext) {
-          onNext()
+          returnValue = onNext()
         }
         setPageIndex(currentPage + 1)
       }
-      if (onClick) return onClick(e)
+      return onClick
+        ? onClick(e)
+        : returnValue
     }}>
       {finishLabel && currentPage + 1 >= pages.length
         ? finishLabel
@@ -63,17 +66,20 @@ export const ReverseButton: StatelessComponent<DOMAttributes<HTMLButtonElement> 
   children, ...props,
 }) =>
   <Button disabled={disabled || (!cancelLabel && !canReverse)} {...props} onClick={e => {
+    let returnValue
     if (currentPage <= 0) {
       if (onCancel) {
-        onCancel()
+        returnValue = onCancel()
       }
     } else {
       if (onPrevious) {
-        onPrevious()
+        returnValue = onPrevious()
       }
       setPageIndex(currentPage - 1)
     }
-    if (onClick) return onClick(e)
+    return onClick
+      ? onClick(e)
+      : returnValue
   }}>
     {cancelLabel && currentPage <= 0
       ? cancelLabel
