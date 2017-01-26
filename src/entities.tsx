@@ -24,9 +24,10 @@ export type PageConfig = {
   title?: string
   subTitle?: string
   status?: Status
-  onLeave?: () => Awaitable<void|boolean>
-  onAdvance?: () => Awaitable<void|boolean>
-  onReverse?: () => Awaitable<void|boolean>
+  onEnter?: (previousIndex: number) => Awaitable<void>
+  onLeave?: (nextIndex: number) => Awaitable<void|boolean>
+  onAdvance?: (nextIndex: number) => Awaitable<void|boolean>
+  onReverse?: (nextIndex: number) => Awaitable<void|boolean>
   canAdvance?: () => boolean
   canReverse?: () => boolean
   render?: () => ReactElement<any>

@@ -4,7 +4,17 @@ import {PageConfig, stepperContext} from './entities'
 
 export type Props = {
   pages: Array<PageConfig>
-  initialState?: any,
+  initialState?: any
+  /**
+   * Allow reversing more than one step at a time
+   * @default true
+   */
+  allowJumpBack?: boolean
+  /**
+   * Allow advancing more than one step at a time
+   * @default false
+   */
+  allowJumpAhead?: boolean
 }
 
 export type State = {
@@ -32,14 +42,14 @@ export class Stepper extends Component<Props, State> {
     return !page.canReverse || page.canReverse()
   }
 
-  allowNavigate = async fn => {
+  allowNavigate = async (fn, toIndex: number) => {
     if (fn) {
-      const navigate = await fn()
+      const navigate = await fn(toIndex)
       return navigate !== false
     } else return true
   }
   setPageIndex = async (index: number) => {
-    const {pages} = this.props
+    const {pages, allowJumpAhead, allowJumpBack = true} = this.props
     const {currentPage} = this.state
 
     if (index >= pages.length) throw RangeError(`index ${index} is higher than avalible pages ${pages.length}`)
@@ -48,11 +58,16 @@ export class Stepper extends Component<Props, State> {
     const page = pages[currentPage]
 
     if (index > currentPage) {
-      if (!this.canAdvance || !this.allowNavigate(page.onAdvance)) return false
+      if (index > currentPage + 1 && !allowJumpAhead) return false
+      if (!this.canAdvance || !(await this.allowNavigate(page.onAdvance, index))) return false
     } else {
-      if (!this.canReverse || !this.allowNavigate(page.onReverse)) return false
+      if (index < currentPage - 1 && !allowJumpBack) return false
+      if (!this.canReverse || !(await this.allowNavigate(page.onReverse, index))) return false
     }
-    if (!this.allowNavigate(page.onLeave)) return false
+    if (!(await this.allowNavigate(page.onLeave, index))) return false
+
+    const nextPage = pages[index]
+    await this.allowNavigate(nextPage.onEnter, currentPage)
 
 
     this.setState({currentPage: index})
