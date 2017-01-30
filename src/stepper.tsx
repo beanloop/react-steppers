@@ -3,8 +3,17 @@ import {Children, Component, ReactElement} from 'react'
 import {PageConfig, stepperContext} from './entities'
 
 export type Props = {
+  /**
+   * The page index to set as active page
+   */
+  index?: number
+  /**
+   * Called when the page changes. If this is passed, the Stepper
+   * becomes controlled and will expect the parent to maintain the state and update
+   * the index property appropriately.
+   */
+  onChange?: (index: number) => void
   pages: Array<PageConfig>
-  initialState?: any
   /**
    * Allow reversing more than one step at a time
    * @default true
@@ -19,24 +28,26 @@ export type Props = {
 
 export type State = {
   currentPage?: number
-  pageState?: any,
 }
 
 export class Stepper extends Component<Props, State> {
   static childContextTypes = stepperContext
 
-  state = {currentPage: 0} as State
+  get pageIndex() {
+    if (this.props.onChange) return this.props.index
+    else return this.state.currentPage
+  }
 
   get canAdvance() {
     const {pages} = this.props
-    const {currentPage} = this.state
+    const currentPage = this.pageIndex
     if (currentPage + 1 >= pages.length) return false
     const page = pages[currentPage]
     return !page.canAdvance || page.canAdvance()
   }
 
   get canReverse() {
-    const {currentPage} = this.state
+    const currentPage = this.pageIndex
     if (currentPage <= 0) return false
     const page = this.props.pages[currentPage]
     return !page.canReverse || page.canReverse()
@@ -50,7 +61,7 @@ export class Stepper extends Component<Props, State> {
   }
   setPageIndex = async (index: number) => {
     const {pages, allowJumpAhead, allowJumpBack = true} = this.props
-    const {currentPage} = this.state
+    const currentPage = this.pageIndex
 
     if (index >= pages.length) throw RangeError(`index ${index} is higher than avalible pages ${pages.length}`)
     if (index < 0) throw RangeError(`index ${index} is lower than zero`)
@@ -70,24 +81,18 @@ export class Stepper extends Component<Props, State> {
     await this.allowNavigate(nextPage.onEnter, currentPage)
 
 
-    this.setState({currentPage: index})
-  }
-  setPageState = newState => {
-    if (typeof newState === 'function') {
-      this.setState(state => ({pageState: {...state.pageState, ...newState(state.pageState)}}))
-    }
-    this.setState({pageState: {...this.state.pageState, ...newState}})
+    this._setIndex(index)
   }
 
   constructor(props: Props) {
     super(props)
-    this.state.pageState = props.initialState
+    this.state = {currentPage: props.index || 0}
   }
 
   getChildContext() {
     return {
       pages: this.props.pages,
-      currentPage: this.state.currentPage,
+      currentPage: this.pageIndex,
       canAdvance: this.canAdvance,
       canReverse: this.canReverse,
       setPageIndex: this.setPageIndex,
@@ -95,10 +100,11 @@ export class Stepper extends Component<Props, State> {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.pages.length <= this.state.currentPage) {
-      this.setState({
-        currentPage: 0,
-      })
+    if (nextProps.pages.length <= this.pageIndex) {
+      this._setIndex(0)
+    }
+    if (nextProps.index !== this.props.index && !nextProps.onChange && typeof nextProps.index === 'number') {
+      this._setIndex(nextProps.index)
     }
   }
 
@@ -108,5 +114,13 @@ export class Stepper extends Component<Props, State> {
     return Children.count(children) < 2
       ? children as ReactElement<any>
       : <div>{children}</div>
+  }
+
+  private _setIndex(index: number) {
+    if (this.props.onChange) {
+      this.props.onChange(index)
+    } else {
+      this.setState({currentPage: index})
+    }
   }
 }
