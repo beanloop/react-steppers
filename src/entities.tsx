@@ -4,6 +4,7 @@ export const stepperContext = {
   pages: PropTypes.array,
   currentPage: PropTypes.number,
   canAdvance: PropTypes.bool,
+  canFinish: PropTypes.bool,
   canReverse: PropTypes.bool,
   setPageIndex: PropTypes.func,
 }
@@ -12,6 +13,7 @@ export type Context = {
   pages: Array<PageConfig>
   currentPage: number
   canAdvance: boolean
+  canFinish: boolean
   canReverse: boolean
   setPageIndex: (index: number) => void
 }

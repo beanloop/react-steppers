@@ -46,6 +46,14 @@ export class Stepper extends Component<Props, State> {
     return !page.canAdvance || page.canAdvance()
   }
 
+  get canFinish() {
+    const {pages} = this.props
+    const currentPage = this.pageIndex
+    if (currentPage + 1 < pages.length) return false
+    const page = pages[currentPage]
+    return !page.canAdvance || page.canAdvance()
+  }
+
   get canReverse() {
     const currentPage = this.pageIndex
     if (currentPage <= 0) return false
@@ -80,7 +88,6 @@ export class Stepper extends Component<Props, State> {
     const nextPage = pages[index]
     await this.allowNavigate(nextPage.onEnter, currentPage)
 
-
     this._setIndex(index)
   }
 
@@ -94,6 +101,7 @@ export class Stepper extends Component<Props, State> {
       pages: this.props.pages,
       currentPage: this.pageIndex,
       canAdvance: this.canAdvance,
+      canFinish: this.canFinish,
       canReverse: this.canReverse,
       setPageIndex: this.setPageIndex,
     }

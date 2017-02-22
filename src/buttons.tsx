@@ -17,14 +17,14 @@ export const AdvanceButton: StatelessComponent<DOMAttributes<HTMLButtonElement> 
 )(({
   component: Button = 'button',
   canReverse: _, pageState: __, setPageState: ___,
-  pages, canAdvance, currentPage, setPageIndex,
+  pages, canAdvance, canFinish, currentPage, setPageIndex,
   disabled, onClick, onNext, onFinish, finishLabel,
   children, ...props,
 }) => {
   const isLast = finishLabel && currentPage + 1 >= pages.length
 
   return (
-    <Button disabled={disabled || (!isLast && !canAdvance)} {...props} onClick={e => {
+    <Button disabled={disabled || (isLast ? !canFinish : !canAdvance)} {...props} onClick={e => {
       let returnValue
       if (currentPage + 1 >= pages.length) {
         if (onFinish) {
@@ -60,7 +60,7 @@ export const ReverseButton: StatelessComponent<DOMAttributes<HTMLButtonElement> 
   setDisplayName('ReverseButton'),
 )(({
   component: Button = 'button',
-  canAdvance: _, pages: __, pageState: ___, setPageState: ____,
+  canAdvance: _, pages: __, pageState: ___, setPageState: ____, canFinish: _____,
   canReverse, currentPage, setPageIndex,
   disabled, onClick, onPrevious, onCancel, cancelLabel,
   children, ...props,
