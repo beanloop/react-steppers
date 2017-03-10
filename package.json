@@ -7,12 +7,19 @@
     "build": "tscomp build",
     "watch": "tscomp watch",
     "test": "tscomp test",
-    "prepublish": "npm run build"
+    "prepublish": "npm run build",
+    "docs": "yarn docs-analyze && documittu build",
+    "docs-dev": "documittu start",
+    "docs-analyze": "documittu-analyzer-ts . > docs/analyze-result.json"
   },
   "repository": "https://github.com/beanloop/react-step.git",
+  "homepage": "https://beanloop.github.io/react-step",
   "author": "Beanloop AB",
   "license": "MIT",
   "devDependencies": {
+    "documittu": "^0.1.0",
+    "documittu-analyzer-ts": "^0.1.0",
+    "documittu-template-default": "^0.1.0",
     "tscomp": "^0.7.6",
     "tslint": "^4.0.2",
     "tslint-config-beanloop": "^0.1.0"

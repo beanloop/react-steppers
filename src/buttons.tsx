@@ -5,13 +5,36 @@ import setDisplayName from 'recompose/setDisplayName'
 import {withStepper} from './with-stepper'
 
 export type AdvanceButtonProps = {
+  /**
+   * The component to render, it defaults to a browser <button> element.
+   */
   component?: ReactType
+  /**
+   * Callback when the button is used to finish the stepper
+   */
   onFinish?: () => void
+  /**
+   * Callback when the button is used to go to the next page
+   */
   onNext?: () => void
+  /**
+   * A label to show instead of the children when the stepper
+   * is on the last page.
+   */
   finishLabel?: ReactChild
 }
 
-export const AdvanceButton: StatelessComponent<DOMAttributes<HTMLButtonElement> & AdvanceButtonProps> = compose(
+/**
+ * Renders a button to go to the next step
+ *
+ * ### Usage
+ * ```
+ * <AdvanceButton>
+ *   Next
+ * </AdvanceButton>
+ * ```
+ */
+export const AdvanceButton: StatelessComponent<AdvanceButtonProps & DOMAttributes<HTMLButtonElement>> = compose(
   withStepper,
   setDisplayName('AdvanceButton'),
 )(({
@@ -49,13 +72,36 @@ export const AdvanceButton: StatelessComponent<DOMAttributes<HTMLButtonElement> 
 })
 
 export type ReverseButtonProps = {
+  /**
+   * The component to render, it defaults to a browser <button> element.
+   */
   component?: ReactType
+  /**
+   * Callback when the button is used to cancel the stepper
+   */
   onCancel?: () => void
+  /**
+   * Callback when the button is used to go to the previous page
+   */
   onPrevious?: () => void
+  /**
+   * A label to show instead of the children when the stepper
+   * is on the first page.
+   */
   cancelLabel?: ReactChild
 }
 
-export const ReverseButton: StatelessComponent<DOMAttributes<HTMLButtonElement> & ReverseButtonProps> = compose(
+/**
+ * Renders a button to go to the previous step
+ *
+ * ### Usage
+ * ```
+ * <ReverseButton>
+ *   Back
+ * </ReverseButton>
+ * ```
+ */
+export const ReverseButton: StatelessComponent<ReverseButtonProps & DOMAttributes<HTMLButtonElement>> = compose(
   withStepper,
   setDisplayName('ReverseButton'),
 )(({

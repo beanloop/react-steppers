@@ -11,6 +11,15 @@ const row = {
   justifyContent: 'center' as 'center',
 }
 
+/**
+ * A component for tracking the current and total pages
+ * using dots.
+ *
+ * ### Usage
+ * ```
+ * <DotTracker />
+ * ```
+ */
 export const DotTracker: StatelessComponent<{
   activeColor?: string
   inactiveColor?: string

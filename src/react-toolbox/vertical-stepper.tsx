@@ -5,7 +5,7 @@ import {VerticalLine} from '../utils'
 import {withStepper} from '../with-stepper'
 import {StepHeader} from './step-header'
 
-export const enhance = withStepper
+const enhance = withStepper
 
 export type Props = {
   activeColor?: string
@@ -37,4 +37,8 @@ export const StatelessVerticalStepper = ({pages, currentPage, setPageIndex, acti
     </div>
   </div>
 
+/**
+ * A component that renders the mobile version of the vertical stepper
+ * from the [material design guidlines](https://material.io/guidelines/components/steppers.html#steppers-types-of-steppers)
+ */
 export const VerticalStepper: StatelessComponent<Props> = enhance(StatelessVerticalStepper)

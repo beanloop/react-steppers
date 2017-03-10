@@ -2,7 +2,7 @@ import * as React from 'react'
 import {CSSProperties} from 'react'
 import {Column} from 'styled-material/dist/src/layout'
 import {PageConfig} from '../entities'
-import {ClickableRow, defaultActiveColor, defaultAlertColor} from '../utils'
+import {ClickableRow, defaultAlertColor} from '../utils'
 import {StepCircle} from './step-circle'
 
 export type Props = {
@@ -15,6 +15,10 @@ export type Props = {
   alertColor?: string
 }
 
+/**
+ * A step header after [material design](https://material.io/guidelines/components/steppers.html#steppers-specs)
+ * renders a step icon and title. Used for building material design based steppers.
+ */
 export const StepHeader = ({step, active, page, activeColor, alertColor = defaultAlertColor, style, onClick}: Props) =>
   <ClickableRow
     disabled={active}

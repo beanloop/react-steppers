@@ -6,6 +6,27 @@ import {withStepper} from './with-stepper'
 
 const defaultGenerateText = (current, total) => `Step ${current + 1} of ${total}`
 
+/**
+ * A component for tracking the current and total pages
+ * using a text.
+ *
+ * ### Usage
+ * ```
+ * <TextTracker />
+ * ```
+ *
+ * ### Options
+ * The default behavior is to render a tect in the format `Step 1 of 2`.
+ * To render in a different format, pass a function in the generateText property
+ * that takes the current and total number of pages as arguments and returns
+ * the text to be rendered.
+ *
+ * For example
+ * ```
+ * (current, total) => `${current} / ${total}`
+ * ```
+ * will render `1 / 2`.
+ */
 export const TextTracker: StatelessComponent<{
   generateText?: (current: number, total: number) => string
   style?: CSSProperties

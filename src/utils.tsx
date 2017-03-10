@@ -14,6 +14,9 @@ export type CircleProps = {
   style?: CSSProperties
 }
 
+/**
+ * A simple circle, used for step icons and by the dot tracker.
+ */
 export const Circle = ({size, color, margin, children, style}: CircleProps) =>
   <div children={children} style={{
     margin,
@@ -24,12 +27,18 @@ export const Circle = ({size, color, margin, children, style}: CircleProps) =>
     ...style,
   }} />
 
+/**
+ * A function to filter keyboard events to spacebar and Enter
+ */
 export const onKeyboardClick = fn => (e: React.KeyboardEvent<any>) => {
   if (e.key === ' ' || e.key === 'Enter') {
     return fn(e)
   }
 }
 
+/**
+ * A flexbox row that is focusable and clickable like a button
+ */
 export const ClickableRow = ({onClick, disabled, style, ...props}) =>
   <Row
     role={!disabled && 'button'}
@@ -43,6 +52,9 @@ export const ClickableRow = ({onClick, disabled, style, ...props}) =>
     {...props}
   />
 
+/**
+ * A simple vertical line, used for constructing the vertical stepper
+ */
 export const VerticalLine = () =>
   <div style={{
     position: 'absolute',

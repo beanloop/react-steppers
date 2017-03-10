@@ -30,6 +30,25 @@ export type State = {
   currentPage?: number
 }
 
+/**
+ * The component where a stepper is configured and holds all state
+ * and logic for navigating a stepper.
+ *
+ * It does not render any UI by itself and must be accompanied by
+ * UI components like the DotTracker, Advance and Reverse Buttons or others.
+ *
+ * ### Usage
+ * ```
+ * <Stepper pages={[{component: PageOne}, {component: PageTwo}]}>
+ *  <StepperView />
+ *  <Row>
+ *    <ReverseButton>Back</ReverseButton>
+ *    <DotTracker />
+ *    <AdvanceButton>Next</AdvanceButton>
+ *  </Row>
+ * </Stepper>
+ * ```
+ */
 export class Stepper extends Component<Props, State> {
   static childContextTypes = stepperContext
 
