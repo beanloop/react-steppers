@@ -12,7 +12,7 @@ npm install --save react-step
 ```
 
 ## Documentation
-<https://beanloop.github.io/react-step>
+<https://beanloop.github.io/react-step/#/docs>
 
 ## Usage
 See the example in the repository
