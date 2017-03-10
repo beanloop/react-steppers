@@ -1,6 +1,7 @@
 ---
 title: Other UI Components
 imports:
+  '{FontIcon}': 'react-toolbox/lib/font_icon'
   '{Stepper, StepperView, StepTitle, TextTracker}': '../../../dist/src/index'
   '{AdvanceButton, ReverseButton}': '../../../dist/src/react-toolbox'
   '{PageOne, PageTwo, PageThree}': '../../src/example-helpers'
@@ -24,18 +25,20 @@ imports:
     <div style={{display: 'flex', padding: 16}}>
       <StepTitle />
       <span style={{flex: 1}} />
-      <TextTracker generateText={(current, total) => `${current} / ${total}`} />
+      <TextTracker generateText={(current, total) => `${current + 1} / ${total}`} />
     </div>
     <div style={{padding: 16}}>
       <StepperView />
     </div>
     <div style={{display: 'flex', padding: 16}}>
       <ReverseButton>
+        <FontIcon value='chevron_left' />
         Back
       </ReverseButton>
       <span style={{flex: 1}} />
       <AdvanceButton>
         Next
+        <FontIcon value='chevron_right' />
       </AdvanceButton>
     </div>
   </div>

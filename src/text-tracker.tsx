@@ -23,9 +23,9 @@ const defaultGenerateText = (current, total) => `Step ${current + 1} of ${total}
  *
  * For example
  * ```
- * (current, total) => `${current} / ${total}`
+ * (current, total) => `${current + 1} / ${total}`
  * ```
- * will render `1 / 2`.
+ * will render `1 / 2`. Note that the current page is zero based.
  */
 export const TextTracker: StatelessComponent<{
   generateText?: (current: number, total: number) => string

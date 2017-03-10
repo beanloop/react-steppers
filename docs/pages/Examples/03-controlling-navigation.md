@@ -1,7 +1,7 @@
 ---
 title: Controlling Navigation
 imports:
-  '{Input}': 'react-toolbox'
+  '{Input}': 'react-toolbox/lib/input'
   '{Stepper, StepperView, DotTracker}': '../../../dist/src/index'
   '{AdvanceButton, ReverseButton}': '../../../dist/src/index'
 ---
