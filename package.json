@@ -20,6 +20,7 @@
     "documittu": "^0.1.0",
     "documittu-analyzer-ts": "^0.1.0",
     "documittu-template-default": "^0.1.0",
+    "react-addons-css-transition-group": "^15.4.2",
     "tscomp": "^0.7.6",
     "tslint": "^4.0.2",
     "tslint-config-beanloop": "^0.1.0"

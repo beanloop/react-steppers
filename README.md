@@ -12,10 +12,8 @@ npm install --save react-step
 ```
 
 ## Documentation
-<https://beanloop.github.io/react-step/#/docs>
-
-## Usage
-See the example in the repository
+For examples and API documentation please see
+<https://beanloop.github.io/react-step/>
 
 ## License
 react-step is dual-licensed under Apache 2.0 and MIT terms.

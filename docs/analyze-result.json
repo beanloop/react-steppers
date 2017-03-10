@@ -10,13 +10,13 @@
         "94": "6",
         "234": "8",
         "247": "13",
-        "407": "20",
-        "409": "21",
-        "410": "22",
-        "439": "23",
-        "482": "27",
-        "575": "32",
-        "629": "34"
+        "394": "20",
+        "396": "21",
+        "397": "22",
+        "421": "23",
+        "459": "27",
+        "539": "32",
+        "591": "34"
     },
     "declarationModule": {
         "0": "dist/src/entities.js",
@@ -8669,37 +8669,6 @@
                             "optional": true
                         },
                         {
-                            "name": "accent",
-                            "documentation": "Indicates if the button should have accent color.",
-                            "type": {
-                                "kind": "Named",
-                                "name": "boolean",
-                                "id": 12
-                            },
-                            "optional": true
-                        },
-                        {
-                            "name": "children",
-                            "documentation": "Children to pass through the component.",
-                            "type": {
-                                "kind": "Named",
-                                "name": "ReactNode",
-                                "id": 475,
-                                "importedFrom": "react"
-                            },
-                            "optional": true
-                        },
-                        {
-                            "name": "disabled",
-                            "documentation": "If true, component will be disabled.",
-                            "type": {
-                                "kind": "Named",
-                                "name": "boolean",
-                                "id": 12
-                            },
-                            "optional": true
-                        },
-                        {
                             "name": "flat",
                             "documentation": "If true, the button will have a flat look.",
                             "type": {
@@ -8730,27 +8699,6 @@
                             "optional": true
                         },
                         {
-                            "name": "icon",
-                            "documentation": "Value of the icon (See Font Icon Component).",
-                            "type": {
-                                "kind": "Named",
-                                "name": "ReactNode",
-                                "id": 475,
-                                "importedFrom": "react"
-                            },
-                            "optional": true
-                        },
-                        {
-                            "name": "inverse",
-                            "documentation": "If true, the neutral colors are inverted. Useful to put a button over a dark background.",
-                            "type": {
-                                "kind": "Named",
-                                "name": "boolean",
-                                "id": 12
-                            },
-                            "optional": true
-                        },
-                        {
                             "name": "label",
                             "documentation": "The text string to use for the name of the button.",
                             "type": {
@@ -8771,6 +8719,78 @@
                             "optional": true
                         },
                         {
+                            "name": "raised",
+                            "documentation": "If true, the button will have a raised look.",
+                            "type": {
+                                "kind": "Named",
+                                "name": "boolean",
+                                "id": 12
+                            },
+                            "optional": true
+                        },
+                        {
+                            "name": "theme",
+                            "documentation": "Classnames object defining the component style.",
+                            "type": {
+                                "kind": "Named",
+                                "name": "ButtonTheme",
+                                "id": 454
+                            },
+                            "optional": true
+                        },
+                        {
+                            "name": "accent",
+                            "documentation": "Indicates if the button should have accent color.",
+                            "type": {
+                                "kind": "Named",
+                                "name": "boolean",
+                                "id": 12
+                            },
+                            "optional": true
+                        },
+                        {
+                            "name": "children",
+                            "documentation": "Children to pass through the component.",
+                            "type": {
+                                "kind": "Named",
+                                "name": "ReactNode",
+                                "id": 112,
+                                "importedFrom": "react"
+                            },
+                            "optional": true
+                        },
+                        {
+                            "name": "disabled",
+                            "documentation": "If true, component will be disabled.",
+                            "type": {
+                                "kind": "Named",
+                                "name": "boolean",
+                                "id": 12
+                            },
+                            "optional": true
+                        },
+                        {
+                            "name": "icon",
+                            "documentation": "Value of the icon (See Font Icon Component).",
+                            "type": {
+                                "kind": "Named",
+                                "name": "ReactNode",
+                                "id": 112,
+                                "importedFrom": "react"
+                            },
+                            "optional": true
+                        },
+                        {
+                            "name": "inverse",
+                            "documentation": "If true, the neutral colors are inverted. Useful to put a button over a dark background.",
+                            "type": {
+                                "kind": "Named",
+                                "name": "boolean",
+                                "id": 12
+                            },
+                            "optional": true
+                        },
+                        {
                             "name": "neutral",
                             "documentation": "Set it to false if you don't want the neutral styles to be included.",
                             "type": {
@@ -8781,18 +8801,30 @@
                             "optional": true
                         },
                         {
-                            "name": "primary",
-                            "documentation": "Indicates if the button should have primary color.",
+                            "name": "onMouseLeave",
+                            "documentation": "Fires after the mouse leaves the Component.",
                             "type": {
                                 "kind": "Named",
-                                "name": "boolean",
-                                "id": 12
+                                "name": "Function",
+                                "id": 29,
+                                "importedFrom": "lib es5"
                             },
                             "optional": true
                         },
                         {
-                            "name": "raised",
-                            "documentation": "If true, the button will have a raised look.",
+                            "name": "onMouseUp",
+                            "documentation": "Fires after the mouse is released from the Component.",
+                            "type": {
+                                "kind": "Named",
+                                "name": "Function",
+                                "id": 29,
+                                "importedFrom": "lib es5"
+                            },
+                            "optional": true
+                        },
+                        {
+                            "name": "primary",
+                            "documentation": "Indicates if the button should have primary color.",
                             "type": {
                                 "kind": "Named",
                                 "name": "boolean",
@@ -8811,12 +8843,12 @@
                             "optional": true
                         },
                         {
-                            "name": "theme",
-                            "documentation": "Classnames object defining the component style.",
+                            "name": "type",
+                            "documentation": "Component root container type.",
                             "type": {
                                 "kind": "Named",
-                                "name": "ButtonTheme",
-                                "id": 476
+                                "name": "string",
+                                "id": 8
                             },
                             "optional": true
                         },
@@ -8853,30 +8885,8 @@
                             "optional": true
                         },
                         {
-                            "name": "onMouseUp",
-                            "documentation": "Fires after the mouse is released from the Component.",
-                            "type": {
-                                "kind": "Named",
-                                "name": "Function",
-                                "id": 29,
-                                "importedFrom": "lib es5"
-                            },
-                            "optional": true
-                        },
-                        {
                             "name": "onMouseEnter",
                             "documentation": "Callback called when the mouse enters the Component.",
-                            "type": {
-                                "kind": "Named",
-                                "name": "Function",
-                                "id": 29,
-                                "importedFrom": "lib es5"
-                            },
-                            "optional": true
-                        },
-                        {
-                            "name": "onMouseLeave",
-                            "documentation": "Callback called when the mouse leaves the Component.",
                             "type": {
                                 "kind": "Named",
                                 "name": "Function",
@@ -9089,7 +9099,7 @@
                             "type": {
                                 "kind": "Named",
                                 "name": "CSSProperties",
-                                "id": 477,
+                                "id": 248,
                                 "importedFrom": "react"
                             },
                             "optional": true
@@ -9170,37 +9180,6 @@
                             "optional": true
                         },
                         {
-                            "name": "accent",
-                            "documentation": "Indicates if the button should have accent color.",
-                            "type": {
-                                "kind": "Named",
-                                "name": "boolean",
-                                "id": 12
-                            },
-                            "optional": true
-                        },
-                        {
-                            "name": "children",
-                            "documentation": "Children to pass through the component.",
-                            "type": {
-                                "kind": "Named",
-                                "name": "ReactNode",
-                                "id": 475,
-                                "importedFrom": "react"
-                            },
-                            "optional": true
-                        },
-                        {
-                            "name": "disabled",
-                            "documentation": "If true, component will be disabled.",
-                            "type": {
-                                "kind": "Named",
-                                "name": "boolean",
-                                "id": 12
-                            },
-                            "optional": true
-                        },
-                        {
                             "name": "flat",
                             "documentation": "If true, the button will have a flat look.",
                             "type": {
@@ -9231,27 +9210,6 @@
                             "optional": true
                         },
                         {
-                            "name": "icon",
-                            "documentation": "Value of the icon (See Font Icon Component).",
-                            "type": {
-                                "kind": "Named",
-                                "name": "ReactNode",
-                                "id": 475,
-                                "importedFrom": "react"
-                            },
-                            "optional": true
-                        },
-                        {
-                            "name": "inverse",
-                            "documentation": "If true, the neutral colors are inverted. Useful to put a button over a dark background.",
-                            "type": {
-                                "kind": "Named",
-                                "name": "boolean",
-                                "id": 12
-                            },
-                            "optional": true
-                        },
-                        {
                             "name": "label",
                             "documentation": "The text string to use for the name of the button.",
                             "type": {
@@ -9272,6 +9230,78 @@
                             "optional": true
                         },
                         {
+                            "name": "raised",
+                            "documentation": "If true, the button will have a raised look.",
+                            "type": {
+                                "kind": "Named",
+                                "name": "boolean",
+                                "id": 12
+                            },
+                            "optional": true
+                        },
+                        {
+                            "name": "theme",
+                            "documentation": "Classnames object defining the component style.",
+                            "type": {
+                                "kind": "Named",
+                                "name": "ButtonTheme",
+                                "id": 454
+                            },
+                            "optional": true
+                        },
+                        {
+                            "name": "accent",
+                            "documentation": "Indicates if the button should have accent color.",
+                            "type": {
+                                "kind": "Named",
+                                "name": "boolean",
+                                "id": 12
+                            },
+                            "optional": true
+                        },
+                        {
+                            "name": "children",
+                            "documentation": "Children to pass through the component.",
+                            "type": {
+                                "kind": "Named",
+                                "name": "ReactNode",
+                                "id": 112,
+                                "importedFrom": "react"
+                            },
+                            "optional": true
+                        },
+                        {
+                            "name": "disabled",
+                            "documentation": "If true, component will be disabled.",
+                            "type": {
+                                "kind": "Named",
+                                "name": "boolean",
+                                "id": 12
+                            },
+                            "optional": true
+                        },
+                        {
+                            "name": "icon",
+                            "documentation": "Value of the icon (See Font Icon Component).",
+                            "type": {
+                                "kind": "Named",
+                                "name": "ReactNode",
+                                "id": 112,
+                                "importedFrom": "react"
+                            },
+                            "optional": true
+                        },
+                        {
+                            "name": "inverse",
+                            "documentation": "If true, the neutral colors are inverted. Useful to put a button over a dark background.",
+                            "type": {
+                                "kind": "Named",
+                                "name": "boolean",
+                                "id": 12
+                            },
+                            "optional": true
+                        },
+                        {
                             "name": "neutral",
                             "documentation": "Set it to false if you don't want the neutral styles to be included.",
                             "type": {
@@ -9282,18 +9312,30 @@
                             "optional": true
                         },
                         {
-                            "name": "primary",
-                            "documentation": "Indicates if the button should have primary color.",
+                            "name": "onMouseLeave",
+                            "documentation": "Fires after the mouse leaves the Component.",
                             "type": {
                                 "kind": "Named",
-                                "name": "boolean",
-                                "id": 12
+                                "name": "Function",
+                                "id": 29,
+                                "importedFrom": "lib es5"
                             },
                             "optional": true
                         },
                         {
-                            "name": "raised",
-                            "documentation": "If true, the button will have a raised look.",
+                            "name": "onMouseUp",
+                            "documentation": "Fires after the mouse is released from the Component.",
+                            "type": {
+                                "kind": "Named",
+                                "name": "Function",
+                                "id": 29,
+                                "importedFrom": "lib es5"
+                            },
+                            "optional": true
+                        },
+                        {
+                            "name": "primary",
+                            "documentation": "Indicates if the button should have primary color.",
                             "type": {
                                 "kind": "Named",
                                 "name": "boolean",
@@ -9312,12 +9354,12 @@
                             "optional": true
                         },
                         {
-                            "name": "theme",
-                            "documentation": "Classnames object defining the component style.",
+                            "name": "type",
+                            "documentation": "Component root container type.",
                             "type": {
                                 "kind": "Named",
-                                "name": "ButtonTheme",
-                                "id": 476
+                                "name": "string",
+                                "id": 8
                             },
                             "optional": true
                         },
@@ -9354,30 +9396,8 @@
                             "optional": true
                         },
                         {
-                            "name": "onMouseUp",
-                            "documentation": "Fires after the mouse is released from the Component.",
-                            "type": {
-                                "kind": "Named",
-                                "name": "Function",
-                                "id": 29,
-                                "importedFrom": "lib es5"
-                            },
-                            "optional": true
-                        },
-                        {
                             "name": "onMouseEnter",
                             "documentation": "Callback called when the mouse enters the Component.",
-                            "type": {
-                                "kind": "Named",
-                                "name": "Function",
-                                "id": 29,
-                                "importedFrom": "lib es5"
-                            },
-                            "optional": true
-                        },
-                        {
-                            "name": "onMouseLeave",
-                            "documentation": "Callback called when the mouse leaves the Component.",
                             "type": {
                                 "kind": "Named",
                                 "name": "Function",
@@ -9590,7 +9610,7 @@
                             "type": {
                                 "kind": "Named",
                                 "name": "CSSProperties",
-                                "id": 477,
+                                "id": 248,
                                 "importedFrom": "react"
                             },
                             "optional": true
@@ -10266,6 +10286,6 @@
     },
     "readmes": {
         "dist/src/react-toolbox": "### react-toolbox\nThis contains stepper components that are based on [react-toolbox](http://react-toolbox.com).\nThey use material design and do overall provide a more polished feeling.\n",
-        "dist/src": "# react-step\n[![Build Status](https://travis-ci.org/beanloop/react-step.svg?branch=master)](https://travis-ci.org/beanloop/react-step)\n[![npm version](https://badge.fury.io/js/react-step.svg)](https://badge.fury.io/js/react-step)\n[![License](http://img.shields.io/:license-mit-blue.svg)](http://doge.mit-license.org)\n\nA package of React components to easily build advanced steppers.\n\n## Install\n```\nyarn add react-step\nnpm install --save react-step\n```\n\n## Documentation\n<https://beanloop.github.io/react-step>\n\n## Usage\nSee the example in the repository\n\n## License\nreact-step is dual-licensed under Apache 2.0 and MIT terms.\n"
+        "dist/src": "# react-step\n[![Build Status](https://travis-ci.org/beanloop/react-step.svg?branch=master)](https://travis-ci.org/beanloop/react-step)\n[![npm version](https://badge.fury.io/js/react-step.svg)](https://badge.fury.io/js/react-step)\n[![License](http://img.shields.io/:license-mit-blue.svg)](http://doge.mit-license.org)\n\nA package of React components to easily build advanced steppers.\n\n## Install\n```\nyarn add react-step\nnpm install --save react-step\n```\n\n## Documentation\n<https://beanloop.github.io/react-step/#/docs>\n\n## Usage\nSee the example in the repository\n\n## License\nreact-step is dual-licensed under Apache 2.0 and MIT terms.\n"
     }
 }

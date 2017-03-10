@@ -3,7 +3,7 @@ import apiData from './analyze-result.json'
 
 start({
   title: 'react-form-helper',
-  // pages: require.context('./pages', true, /^\.\/.*\.md$/),
+  pages: require.context('./pages', true, /^\.\/.*\.md$/),
   apiDocs: {
     data: apiData,
   },
