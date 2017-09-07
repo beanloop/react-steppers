@@ -1,5 +1,5 @@
 {
-  "name": "react-step",
+  "name": "@fael/react-step",
   "version": "0.3.0",
   "description": "",
   "main": "dist/src/index.js",
@@ -12,8 +12,8 @@
     "docs-dev": "documittu start",
     "docs-analyze": "documittu-analyzer-ts . > docs/analyze-result.json"
   },
-  "repository": "https://github.com/beanloop/react-step.git",
-  "homepage": "https://beanloop.github.io/react-step",
+  "repository": "https://github.com/fael/react-step.git",
+  "homepage": "https://fael.github.io/react-step",
   "author": "Beanloop AB",
   "license": "MIT",
   "devDependencies": {
@@ -27,13 +27,11 @@
   },
   "peerDependencies": {
     "react": "^15.4.2",
-    "react-dom": "^15.4.2",
-    "react-toolbox": "^1.3.4"
+    "react-dom": "^15.4.2"
   },
   "dependencies": {
     "@types/react": "^15.0.0",
     "@types/react-dom": "^0.14.20",
-    "recompose": "^0.21.2",
-    "styled-material": "^0.1.7"
+    "recompose": "^0.21.2"
   }
 }
