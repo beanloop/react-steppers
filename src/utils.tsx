@@ -1,6 +1,6 @@
 import * as React from 'react'
 import {CSSProperties, ReactChild} from 'react'
-import {Row} from 'styled-material/dist/src/layout'
+//import {Row} from 'styled-material/dist/src/layout'
 
 export const defaultActiveColor = '#3f51b5'
 export const defaultAlertColor = '#f44336'
@@ -40,7 +40,7 @@ export const onKeyboardClick = fn => (e: React.KeyboardEvent<any>) => {
  * A flexbox row that is focusable and clickable like a button
  */
 export const ClickableRow = ({onClick, disabled, style, ...props}) =>
-  <Row
+  <div
     role={!disabled && 'button'}
     style={{
       cursor: disabled ? 'default' : 'pointer',
