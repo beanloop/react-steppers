@@ -1,6 +1,6 @@
 {
-  "name": "react-step",
-  "version": "0.3.0",
+  "name": "react-steppers",
+  "version": "0.3.1",
   "description": "",
   "main": "dist/src/index.js",
   "scripts": {
@@ -12,8 +12,8 @@
     "docs-dev": "documittu start",
     "docs-analyze": "documittu-analyzer-ts . > docs/analyze-result.json"
   },
-  "repository": "https://github.com/beanloop/react-step.git",
-  "homepage": "https://beanloop.github.io/react-step",
+  "repository": "https://github.com/beanloop/react-steppers.git",
+  "homepage": "https://beanloop.github.io/react-steppers",
   "author": "Beanloop AB",
   "license": "MIT",
   "devDependencies": {
