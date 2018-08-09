@@ -42,7 +42,7 @@ export const AdvanceButton: StatelessComponent<AdvanceButtonProps & DOMAttribute
   canReverse: _, pageState: __, setPageState: ___,
   pages, canAdvance, canFinish, currentPage, setPageIndex,
   disabled, onClick, onNext, onFinish, finishLabel,
-  children, ...props,
+  children, ...props
 }) => {
   const isLast = finishLabel && currentPage + 1 >= pages.length
 
@@ -109,7 +109,7 @@ export const ReverseButton: StatelessComponent<ReverseButtonProps & DOMAttribute
   canAdvance: _, pages: __, pageState: ___, setPageState: ____, canFinish: _____,
   canReverse, currentPage, setPageIndex,
   disabled, onClick, onPrevious, onCancel, cancelLabel,
-  children, ...props,
+  children, ...props
 }) =>
   <Button disabled={disabled || (!cancelLabel && !canReverse)} {...props} onClick={e => {
     let returnValue

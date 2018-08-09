@@ -1,4 +1,5 @@
-import {PropTypes, ReactElement, ReactType} from 'react'
+import {ReactElement, ReactType} from 'react'
+import PropTypes from 'prop-types'
 
 /**
  * The stepper context as PropTypes to be consumed by React

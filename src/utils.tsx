@@ -61,7 +61,7 @@ export const VerticalLine = () =>
     top: 0,
     left: 36,
     bottom: 16,
-    heigth: '100%',
+    height: '100%',
     width: 1,
     backgroundColor: 'rgba(0, 0, 0, 0.12)',
   }} />

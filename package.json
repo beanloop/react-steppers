@@ -21,19 +21,20 @@
     "documittu-analyzer-ts": "^0.1.0",
     "documittu-template-default": "^0.1.0",
     "react-addons-css-transition-group": "^15.4.2",
-    "tscomp": "^0.7.6",
+    "tscomp": "^0.9.1",
     "tslint": "^4.0.2",
     "tslint-config-beanloop": "^0.1.0"
   },
   "peerDependencies": {
-    "react": "^15.4.2",
-    "react-dom": "^15.4.2",
+    "prop-types": "^15.6.2",
+    "react": "^15.0.0 || ^16.0.0",
+    "react-dom": "^15.0.0 || ^16.0.0",
     "react-toolbox": "^1.3.4"
   },
   "dependencies": {
-    "@types/react": "^15.0.0",
-    "@types/react-dom": "^0.14.20",
+    "@types/react": "^16.4.8",
+    "@types/react-dom": "^16.0.7",
     "recompose": "^0.21.2",
-    "styled-material": "^0.1.7"
+    "styled-material": "0.1.9"
   }
 }
